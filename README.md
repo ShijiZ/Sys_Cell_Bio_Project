@@ -1,3 +1,16 @@
 # Sys_Cell_Bio_Project
 
-This repository is for the final project of UCI 2018 Winter DevBio 232 Systems Cell Biology course. The project simulates the behaviour of a single kinesin-type molecular motor walking on a microtuble.
+This repository is for the final project of UCI 2018 Winter DevBio 232 Systems Cell Biology course. The project simulates the behaviour of a single kinesin-type molecular motor walking on a microtuble. The corresponding question of each file are as follows:
+
+[SingleMotorSimulation.py](https://github.com/ShijiZ/Sys_Cell_Bio_Project/blob/master/SingleMotorSimulation.py): Simulates a single kinesin-type motor stepping along a microtubule (MT). At t=0 (the start of a ‘run’) it is attached to a microtubule. At each subsequent timestep it have a probability of stepping, or falling off the MT (which ends the run). Each successful step advance it 8 nm. The stepping frequency and the off rate (probability of falling off the MT for a given step) are adjusted, so that the average velocity is 800 nm/sec and the mean travel distance is 800 nm.  The probability of a step is the same on each iteration. Different numbers of trials(e.g. 10, 20, 40, 80, 160, 1000 individual ‘runs’) were simulated and corresponding histograms showing the distribution of run lengths were made. 
+
+[RequiredSampleSizeForCI.py](https://github.com/ShijiZ/Sys_Cell_Bio_Project/blob/master/RequiredSampleSizeForCI.py): Determines the sample size required for reasonable estimate of the distribution’s properties. For each choice of sample size, many samples were generated to determine whether the calculated 95% CI (using standard t-test) contains the actual mean of the population, which is 800 nm by construction. Then, for that sample size, the proportion of correct events were determined, i.e. the number of tests that included 800, divided by the total number of tests. Finally, a graph of the proportion as a function of the number of elements in the sample were ploted. At smaple size N = 40, the proportion is close to 0.95.
+
+[VelocityVariation.py](https://github.com/ShijiZ/Sys_Cell_Bio_Project/blob/master/VelocityVariation.py): Shows how velocity variation of a single kinesin stepping changes with the size of the window used to calculate velocity.
+
+[VelocityObservation.py](https://github.com/ShijiZ/Sys_Cell_Bio_Project/blob/master/VelocityObservation.py): Shows the probability of observing a velocity of at least 900 nm/sec, 1200 nm/s, 1600 nm/sec, 2400 nm/sec and 3600 nm/sec at least once in a 1 second interval, over windows of 0.05 sec, 0.1 sec, 0.2 sec, 0.4 sec, and 1 sec, supposing a motor moves with a mean velocity of 800 nm/sec.
+
+[DoubleMotorSimulation.py](https://github.com/ShijiZ/Sys_Cell_Bio_Project/blob/master/DoubleMotorSimulation.py): Models two kinesin motors functioning together. Determines how changing the velocity of the motors (i.e. the rate at which each motor steps) affects the mean travel distance of the group, for two motors, assuming that each individual motor has a processivity of 800 nm. What is your prediction for the mean travel of a cargo with two such motors, assuming a fixed on-rate (probability of binding) of 2/sec, for mean velocity of 100 nm/sec, 200 nm/sec, 400 nm/sec, and 800 nm/sec?
+
+[OOP_rewrite.ipynb](https://github.com/ShijiZ/Sys_Cell_Bio_Project/blob/master/OOP_rewrite.ipynb): All 5 scripts above rewrote following Object-Oriented Programming (OOP) scheme.
+
